@@ -261,6 +261,7 @@ postBtn.addEventListener("click", () => {
 function createPostElement(post) {
   const postElement = document.createElement("div");
   postElement.className = "post-card";
+  postElement.dataset.postId = post.id;
   postElement.innerHTML = `
     <div class="post-header">
       <img src="${post.author.avatar}" alt="${
@@ -273,6 +274,15 @@ function createPostElement(post) {
           <span>${formatTime(post.timestamp)}</span>
         </div>
       </div>
+      ${
+        post.author.name === currentUser.name
+          ? `
+        <button class="delete-post-btn" data-post-id="${post.id}">
+          <i class="fas fa-trash"></i>
+        </button>
+      `
+          : ""
+      }
     </div>
     <div class="post-content">
       ${post.content}
@@ -389,6 +399,16 @@ function createPostElement(post) {
       }
     }
   });
+
+  // Add delete functionality
+  const deleteBtn = postElement.querySelector(".delete-post-btn");
+  if (deleteBtn) {
+    deleteBtn.addEventListener("click", () => {
+      if (confirm("Are you sure you want to delete this post?")) {
+        deletePost(post.id);
+      }
+    });
+  }
 
   feedContainer.insertBefore(postElement, feedContainer.firstChild);
 }
@@ -516,6 +536,27 @@ function updateTrendingCommunities() {
           )
           .join("")}
     `;
+}
+
+// Add delete post function
+function deletePost(postId) {
+  try {
+    // Remove post from the posts array
+    posts = posts.filter((post) => post.id !== postId);
+
+    // Remove post element from the DOM
+    const postElement = document.querySelector(
+      `.post-card[data-post-id="${postId}"]`
+    );
+    if (postElement) {
+      postElement.remove();
+    }
+
+    showNotification("Post deleted successfully!", "success");
+  } catch (error) {
+    console.error("Error deleting post:", error);
+    showNotification("Failed to delete post", "error");
+  }
 }
 
 // Initialize the feed

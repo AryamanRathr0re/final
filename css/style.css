@@ -284,7 +284,9 @@ body {
 .post-header {
   display: flex;
   align-items: center;
-  margin-bottom: 1.5rem;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  position: relative;
 }
 
 .post-avatar {
@@ -1404,4 +1406,27 @@ body {
   height: 2px;
   background: var(--primary-color);
   border-radius: 2px;
+}
+
+.delete-post-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  opacity: 0;
+}
+
+.post-header:hover .delete-post-btn {
+  opacity: 1;
+}
+
+.delete-post-btn:hover {
+  background-color: var(--bg-hover);
+  color: var(--error-color);
 }
