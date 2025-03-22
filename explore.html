@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explore - NicheHub</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="logo">
+          <h1>NicheHub</h1>
+        </div>
+        <nav>
+          <ul class="nav-links">
+            <li>
+              <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            </li>
+            <li>
+              <a href="communities.html"
+                ><i class="fas fa-users"></i> Communities</a
+              >
+            </li>
+            <li class="active">
+              <a href="explore.html"><i class="fas fa-compass"></i> Explore</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-bell"></i> Notifications</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-user"></i> Profile</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="user-profile">
+          <img
+            src="https://picsum.photos/40/40?random=1"
+            alt="User Avatar"
+            class="avatar"
+          />
+          <span class="username">John Doe</span>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <div class="top-bar">
+          <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input
+              type="text"
+              placeholder="Explore posts, communities, and topics..."
+            />
+          </div>
+          <div class="actions">
+            <button class="filter-toggle-btn">
+              <i class="fas fa-filter"></i>
+              Advanced Filters
+            </button>
+          </div>
+        </div>
+
+        <!-- Advanced Filters Panel -->
+        <div class="advanced-filters-panel">
+          <div class="filter-section">
+            <h3>Content Type</h3>
+            <div class="filter-options">
+              <label class="filter-option">
+                <input type="checkbox" value="posts" checked />
+                <span>Posts</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" value="communities" checked />
+                <span>Communities</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" value="topics" checked />
+                <span>Topics</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="filter-section">
+            <h3>Time Range</h3>
+            <div class="filter-options">
+              <label class="filter-option">
+                <input type="radio" name="timeRange" value="today" />
+                <span>Today</span>
+              </label>
+              <label class="filter-option">
+                <input type="radio" name="timeRange" value="week" />
+                <span>This Week</span>
+              </label>
+              <label class="filter-option">
+                <input type="radio" name="timeRange" value="month" />
+                <span>This Month</span>
+              </label>
+              <label class="filter-option">
+                <input type="radio" name="timeRange" value="year" />
+                <span>This Year</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="filter-section">
+            <h3>Engagement Level</h3>
+            <div class="filter-options">
+              <label class="filter-option">
+                <input type="radio" name="engagement" value="high" />
+                <span>High Engagement</span>
+              </label>
+              <label class="filter-option">
+                <input type="radio" name="engagement" value="medium" />
+                <span>Medium Engagement</span>
+              </label>
+              <label class="filter-option">
+                <input type="radio" name="engagement" value="low" />
+                <span>Low Engagement</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="filter-section">
+            <h3>Sort By</h3>
+            <select class="sort-select">
+              <option value="relevance">Relevance</option>
+              <option value="trending">Trending</option>
+              <option value="recent">Most Recent</option>
+              <option value="popular">Most Popular</option>
+            </select>
+          </div>
+
+          <div class="filter-actions">
+            <button class="apply-filters-btn">Apply Filters</button>
+            <button class="reset-filters-btn">Reset</button>
+          </div>
+        </div>
+
+        <!-- Explore Content -->
+        <div class="explore-content">
+          <!-- Content will be dynamically added here -->
+        </div>
+      </main>
+
+      <!-- Right Sidebar -->
+      <aside class="right-sidebar">
+        <div class="trending-topics">
+          <h3>Trending Topics</h3>
+          <!-- Trending topics will be dynamically added here -->
+        </div>
+      </aside>
+    </div>
+
+    <script src="js/explore.js"></script>
+  </body>
+</html>

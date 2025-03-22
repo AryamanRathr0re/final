@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NicheHub - Your Community Platform</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/quill@2.0.0-rc.2/dist/quill.snow.css"
+    />
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Sidebar Navigation -->
+      <nav class="sidebar">
+        <div class="logo">
+          <h1>NicheHub</h1>
+        </div>
+        <ul class="nav-links">
+          <li class="active">
+            <a href="#home"><i class="fas fa-home"></i> Home</a>
+          </li>
+          <li>
+            <a href="./communities.html"
+              ><i class="fas fa-users"></i> Communities</a
+            >
+          </li>
+          <li>
+            <a href="./explore.html"><i class="fas fa-compass"></i> Explore</a>
+          </li>
+          <li>
+            <a href="#notifications"
+              ><i class="fas fa-bell"></i> Notifications</a
+            >
+          </li>
+          <li>
+            <a href="#profile"><i class="fas fa-user"></i> Profile</a>
+          </li>
+        </ul>
+        <div class="user-profile">
+          <img
+            src="https://via.placeholder.com/40"
+            alt="Profile"
+            class="avatar"
+          />
+          <span class="username">John Doe</span>
+        </div>
+      </nav>
+
+      <!-- Main Content Area -->
+      <main class="main-content">
+        <header class="top-bar">
+          <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input
+              type="text"
+              placeholder="Search communities, posts, or users..."
+            />
+          </div>
+          <div class="actions">
+            <button class="create-post-btn">
+              <i class="fas fa-plus"></i> Create Post
+            </button>
+            <div class="theme-toggle">
+              <i class="fas fa-moon"></i>
+            </div>
+          </div>
+        </header>
+
+        <!-- Feed Section -->
+        <section class="feed-section">
+          <div class="feed-filters">
+            <button class="filter-btn active"><span>Latest</span></button>
+            <button class="filter-btn"><span>Trending</span></button>
+            <button class="filter-btn"><span>Following</span></button>
+            <button class="filter-btn"><span>Popular</span></button>
+          </div>
+
+          <!-- Posts Container -->
+          <div class="posts-container">
+            <!-- Posts will be dynamically added here -->
+          </div>
+        </section>
+      </main>
+
+      <!-- Right Sidebar -->
+      <aside class="right-sidebar">
+        <div class="trending-communities">
+          <h3>Trending Communities</h3>
+          <div class="community-list">
+            <!-- Communities will be dynamically added here -->
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Create Post Modal -->
+    <div class="modal" id="createPostModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Create New Post</h2>
+          <button class="close-modal"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="modal-body">
+          <div id="editor"></div>
+        </div>
+        <div class="modal-footer">
+          <button class="cancel-btn">Cancel</button>
+          <button class="post-btn">Post</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyDxGXqXqXqXqXqXqXqXqXqXqXqXqXqXqXqX",
+        authDomain: "your-project.firebaseapp.com",
+        projectId: "your-project",
+        storageBucket: "your-project.appspot.com",
+        messagingSenderId: "your-messaging-sender-id",
+        appId: "your-app-id",
+      };
+      firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <!-- Quill Editor -->
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.0-rc.2/dist/quill.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

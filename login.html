@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Community Platform</title>
+    <link rel="stylesheet" href="css/auth.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="auth-container">
+      <div class="auth-box">
+        <div class="auth-header">
+          <h1>Welcome Back</h1>
+          <p>Sign in to continue to your account</p>
+        </div>
+        <form id="loginForm" class="auth-form">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <div class="input-group">
+              <i class="fas fa-envelope"></i>
+              <input type="email" id="email" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <div class="input-group">
+              <i class="fas fa-lock"></i>
+              <input type="password" id="password" required />
+            </div>
+          </div>
+          <div class="form-options">
+            <label class="remember-me">
+              <input type="checkbox" id="remember" />
+              <span>Remember me</span>
+            </label>
+            <a href="#" class="forgot-password">Forgot Password?</a>
+          </div>
+          <button type="submit" class="auth-button">
+            <span>Sign In</span>
+          </button>
+          <div class="social-login">
+            <p>Or continue with</p>
+            <div class="social-buttons">
+              <button type="button" class="social-button google">
+                <i class="fab fa-google"></i>
+                <span>Google</span>
+              </button>
+              <button type="button" class="social-button github">
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
+              </button>
+            </div>
+          </div>
+        </form>
+        <div class="auth-footer">
+          <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-app.js";
+      import {
+        getAuth,
+        signInWithEmailAndPassword,
+        GoogleAuthProvider,
+        signInWithPopup,
+        GithubAuthProvider,
+      } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-auth.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyC1cnDgrB9q1JabnqT__b-Bw3zW0SqHUKQ",
+        authDomain: "bw-project-e2230.firebaseapp.com",
+        projectId: "bw-project-e2230",
+        storageBucket: "bw-project-e2230.firebasestorage.app",
+        messagingSenderId: "796544688626",
+        appId: "1:796544688626:web:92bf1744cb34ba039b8b6b",
+        measurementId: "G-9PBJZZ2ZKE",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+
+      // Login form submission
+      const loginForm = document.getElementById("loginForm");
+      loginForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        try {
+          const userCredential = await signInWithEmailAndPassword(
+            auth,
+            email,
+            password
+          );
+          const user = userCredential.user;
+          showNotification("Successfully logged in!", "success");
+          setTimeout(() => {
+            window.location.href = "index.html";
+          }, 1500);
+        } catch (error) {
+          showNotification(error.message, "error");
+        }
+      });
+
+      // Google Sign In
+      const googleButton = document.querySelector(".social-button.google");
+      googleButton.addEventListener("click", async () => {
+        const provider = new GoogleAuthProvider();
+        try {
+          const result = await signInWithPopup(auth, provider);
+          showNotification("Successfully logged in with Google!", "success");
+          setTimeout(() => {
+            window.location.href = "index.html";
+          }, 1500);
+        } catch (error) {
+          showNotification(error.message, "error");
+        }
+      });
+
+      // GitHub Sign In
+      const githubButton = document.querySelector(".social-button.github");
+      githubButton.addEventListener("click", async () => {
+        const provider = new GithubAuthProvider();
+        try {
+          const result = await signInWithPopup(auth, provider);
+          showNotification("Successfully logged in with GitHub!", "success");
+          setTimeout(() => {
+            window.location.href = "index.html";
+          }, 1500);
+        } catch (error) {
+          showNotification(error.message, "error");
+        }
+      });
+
+      // Notification function
+      function showNotification(message, type = "info") {
+        const notification = document.createElement("div");
+        notification.className = `notification ${type}`;
+        notification.innerHTML = `
+                <i class="fas ${
+                  type === "success"
+                    ? "fa-check-circle"
+                    : "fa-exclamation-circle"
+                }"></i>
+                <span>${message}</span>
+            `;
+
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+          notification.classList.add("show");
+        }, 100);
+
+        setTimeout(() => {
+          notification.classList.remove("show");
+          setTimeout(() => {
+            notification.remove();
+          }, 300);
+        }, 3000);
+      }
+    </script>
+  </body>
+</html>

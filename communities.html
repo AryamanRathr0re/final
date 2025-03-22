@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Communities - NicheHub</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="logo">
+          <h1>NicheHub</h1>
+        </div>
+        <nav>
+          <ul class="nav-links">
+            <li>
+              <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            </li>
+            <li class="active">
+              <a href="communities.html"
+                ><i class="fas fa-users"></i> Communities</a
+              >
+            </li>
+            <li>
+              <a href="explore.html"><i class="fas fa-compass"></i> Explore</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-bell"></i> Notifications</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-user"></i> Profile</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="user-profile">
+          <img
+            src="https://picsum.photos/40/40?random=1"
+            alt="User Avatar"
+            class="avatar"
+          />
+          <span class="username">John Doe</span>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <div class="top-bar">
+          <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search communities..." />
+          </div>
+          <div class="actions">
+            <button class="create-post-btn">
+              <i class="fas fa-plus"></i>
+              Create Community
+            </button>
+          </div>
+        </div>
+
+        <!-- Advanced Filters -->
+        <div class="advanced-filters">
+          <div class="filter-section">
+            <h3>Categories</h3>
+            <div class="filter-options">
+              <label class="filter-option">
+                <input type="checkbox" value="gaming" />
+                <span>Gaming</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" value="tech" />
+                <span>Technology</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" value="art" />
+                <span>Art & Design</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" value="music" />
+                <span>Music</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="filter-section">
+            <h3>Member Count</h3>
+            <div class="filter-options">
+              <label class="filter-option">
+                <input type="radio" name="memberCount" value="small" />
+                <span>Small (1-1000)</span>
+              </label>
+              <label class="filter-option">
+                <input type="radio" name="memberCount" value="medium" />
+                <span>Medium (1000-5000)</span>
+              </label>
+              <label class="filter-option">
+                <input type="radio" name="memberCount" value="large" />
+                <span>Large (5000+)</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="filter-section">
+            <h3>Activity Level</h3>
+            <div class="filter-options">
+              <label class="filter-option">
+                <input type="radio" name="activity" value="high" />
+                <span>Very Active</span>
+              </label>
+              <label class="filter-option">
+                <input type="radio" name="activity" value="medium" />
+                <span>Moderately Active</span>
+              </label>
+              <label class="filter-option">
+                <input type="radio" name="activity" value="low" />
+                <span>Less Active</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="filter-section">
+            <h3>Sort By</h3>
+            <select class="sort-select">
+              <option value="members">Most Members</option>
+              <option value="recent">Recently Created</option>
+              <option value="active">Most Active</option>
+              <option value="trending">Trending</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Communities Grid -->
+        <div class="communities-grid">
+          <!-- Community cards will be dynamically added here -->
+        </div>
+      </main>
+
+      <!-- Right Sidebar -->
+      <aside class="right-sidebar">
+        <div class="trending-communities">
+          <h3>Trending Communities</h3>
+          <!-- Trending communities will be dynamically added here -->
+        </div>
+      </aside>
+    </div>
+
+    <!-- Create Community Modal -->
+    <div id="createCommunityModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Create New Community</h2>
+          <button class="close-modal"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="modal-body">
+          <form id="createCommunityForm">
+            <div class="form-group">
+              <label for="communityName">Community Name</label>
+              <input type="text" id="communityName" required />
+            </div>
+            <div class="form-group">
+              <label for="communityDescription">Description</label>
+              <textarea id="communityDescription" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="communityCategory">Category</label>
+              <select id="communityCategory" required>
+                <option value="">Select a category</option>
+                <option value="gaming">Gaming</option>
+                <option value="tech">Technology</option>
+                <option value="art">Art & Design</option>
+                <option value="music">Music</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="communityImage">Community Image</label>
+              <input type="file" id="communityImage" accept="image/*" />
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="cancel-btn">Cancel</button>
+          <button class="post-btn">Create Community</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/communities.js"></script>
+  </body>
+</html>
