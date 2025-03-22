@@ -404,9 +404,7 @@ function createPostElement(post) {
   const deleteBtn = postElement.querySelector(".delete-post-btn");
   if (deleteBtn) {
     deleteBtn.addEventListener("click", () => {
-      if (confirm("Are you sure you want to delete this post?")) {
-        deletePost(post.id);
-      }
+      deletePost(post.id);
     });
   }
 
@@ -541,18 +539,61 @@ function updateTrendingCommunities() {
 // Add delete post function
 function deletePost(postId) {
   try {
-    // Remove post from the posts array
-    posts = posts.filter((post) => post.id !== postId);
+    // Show confirmation modal
+    const confirmModal = document.createElement("div");
+    confirmModal.className = "modal";
+    confirmModal.style.display = "flex";
+    confirmModal.innerHTML = `
+      <div class="modal-content" style="max-width: 400px;">
+        <div class="modal-header">
+          <h2>Delete Post</h2>
+          <button class="close-modal"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to delete this post? This action cannot be undone.</p>
+        </div>
+        <div class="modal-footer">
+          <button class="cancel-btn">Cancel</button>
+          <button class="delete-btn" style="background-color: #ff3b30; color: white;">Delete</button>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(confirmModal);
 
-    // Remove post element from the DOM
-    const postElement = document.querySelector(
-      `.post-card[data-post-id="${postId}"]`
-    );
-    if (postElement) {
-      postElement.remove();
-    }
+    // Add event listeners for the confirmation modal
+    const closeBtn = confirmModal.querySelector(".close-modal");
+    const cancelBtn = confirmModal.querySelector(".cancel-btn");
+    const deleteBtn = confirmModal.querySelector(".delete-btn");
 
-    showNotification("Post deleted successfully!", "success");
+    const closeModal = () => {
+      confirmModal.remove();
+    };
+
+    closeBtn.addEventListener("click", closeModal);
+    cancelBtn.addEventListener("click", closeModal);
+    deleteBtn.addEventListener("click", () => {
+      // Remove post from the posts array
+      posts = posts.filter((post) => post.id !== postId);
+
+      // Remove post element from the DOM
+      const postElement = document.querySelector(
+        `.post-card[data-post-id="${postId}"]`
+      );
+      if (postElement) {
+        postElement.remove();
+        showNotification("Post deleted successfully!", "success");
+      } else {
+        showNotification("Post not found", "error");
+      }
+      closeModal();
+    });
+
+    // Close modal when clicking outside
+    confirmModal.addEventListener("click", (e) => {
+      if (e.target === confirmModal) {
+        closeModal();
+      }
+    });
   } catch (error) {
     console.error("Error deleting post:", error);
     showNotification("Failed to delete post", "error");

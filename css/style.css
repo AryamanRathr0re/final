@@ -1420,6 +1420,11 @@ body {
   border-radius: 50%;
   transition: all 0.2s ease;
   opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
 }
 
 .post-header:hover .delete-post-btn {
@@ -1427,6 +1432,16 @@ body {
 }
 
 .delete-post-btn:hover {
-  background-color: var(--bg-hover);
-  color: var(--error-color);
+  background-color: rgba(255, 59, 48, 0.1);
+  color: #ff3b30;
+  transform: scale(1.1);
+}
+
+.delete-post-btn i {
+  font-size: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.delete-post-btn:hover i {
+  transform: scale(1.1);
 }
