@@ -38,29 +38,25 @@ const communities = [
     id: 1,
     name: "Gaming Enthusiasts",
     members: 12500,
-    image:
-      "https://ui-avatars.com/api/?name=GE&background=random&color=fff&size=40",
+    image: "https://picsum.photos/40/40?random=1",
   },
   {
     id: 2,
     name: "Tech Innovators",
     members: 8900,
-    image:
-      "https://ui-avatars.com/api/?name=TI&background=random&color=fff&size=40",
+    image: "https://picsum.photos/40/40?random=2",
   },
   {
     id: 3,
     name: "Art & Design",
     members: 7500,
-    image:
-      "https://ui-avatars.com/api/?name=AD&background=random&color=fff&size=40",
+    image: "https://picsum.photos/40/40?random=3",
   },
   {
     id: 4,
     name: "Music Lovers",
     members: 11000,
-    image:
-      "https://ui-avatars.com/api/?name=ML&background=random&color=fff&size=40",
+    image: "https://picsum.photos/40/40?random=4",
   },
 ];
 
@@ -72,8 +68,7 @@ let posts = [
       "Just discovered this amazing new game! The graphics are stunning and the gameplay is incredibly smooth. Anyone else playing it?",
     author: {
       name: "John Doe",
-      avatar:
-        "https://ui-avatars.com/api/?name=JD&background=random&color=fff&size=48",
+      avatar: "https://picsum.photos/48/48?random=1",
     },
     community: "Gaming Enthusiasts",
     timestamp: new Date(Date.now() - 3600000), // 1 hour ago
@@ -85,8 +80,7 @@ let posts = [
           "I've been playing it for a week now! The multiplayer is amazing!",
         author: {
           name: "Jane Smith",
-          avatar:
-            "https://ui-avatars.com/api/?name=JS&background=random&color=fff&size=48",
+          avatar: "https://picsum.photos/48/48?random=2",
         },
         timestamp: new Date(Date.now() - 1800000), // 30 minutes ago
       },
@@ -96,8 +90,7 @@ let posts = [
           "The graphics are indeed stunning! What platform are you playing on?",
         author: {
           name: "Mike Johnson",
-          avatar:
-            "https://ui-avatars.com/api/?name=MJ&background=random&color=fff&size=48",
+          avatar: "https://picsum.photos/48/48?random=3",
         },
         timestamp: new Date(Date.now() - 900000), // 15 minutes ago
       },
@@ -109,8 +102,7 @@ let posts = [
       "Check out this new AI technology I've been working on. It's revolutionizing how we approach machine learning!",
     author: {
       name: "Jane Smith",
-      avatar:
-        "https://ui-avatars.com/api/?name=JS&background=random&color=fff&size=48",
+      avatar: "https://picsum.photos/48/48?random=2",
     },
     community: "Tech Innovators",
     timestamp: new Date(Date.now() - 7200000), // 2 hours ago
@@ -122,8 +114,7 @@ let posts = [
           "This is fascinating! Can you share more details about the implementation?",
         author: {
           name: "John Doe",
-          avatar:
-            "https://ui-avatars.com/api/?name=JD&background=random&color=fff&size=48",
+          avatar: "https://picsum.photos/48/48?random=1",
         },
         timestamp: new Date(Date.now() - 3600000), // 1 hour ago
       },
@@ -134,8 +125,7 @@ let posts = [
 // Current user state
 let currentUser = {
   name: "Guest",
-  avatar:
-    "https://ui-avatars.com/api/?name=Guest&background=random&color=fff&size=40",
+  avatar: "https://picsum.photos/40/40?random=1",
 };
 
 // Initialize Firebase Auth state observer
@@ -144,9 +134,7 @@ firebase.auth().onAuthStateChanged((user) => {
     // User is signed in
     currentUser = {
       name: user.displayName || user.email.split("@")[0],
-      avatar:
-        user.photoURL ||
-        `https://ui-avatars.com/api/?name=${user.displayName}&background=random&color=fff&size=40`,
+      avatar: user.photoURL || `https://picsum.photos/40/40?random=${user.uid}`,
     };
 
     // Update UI elements that show user info
@@ -164,8 +152,7 @@ firebase.auth().onAuthStateChanged((user) => {
     // User is signed out
     currentUser = {
       name: "Guest",
-      avatar:
-        "https://ui-avatars.com/api/?name=Guest&background=random&color=fff&size=40",
+      avatar: "https://picsum.photos/40/40?random=1",
     };
   }
 });
@@ -537,20 +524,21 @@ function updateCommunityStats() {
 
 function updateTrendingCommunities() {
   trendingCommunities.innerHTML = `
-    <h3>Trending Communities</h3>
-    ${communities
-      .map(
-        (community) => `
-        <div class="community-item">
-          <div class="community-info">
-            <h4>${community.name}</h4>
-            <span>${community.members.toLocaleString()} members</span>
-          </div>
-        </div>
-      `
-      )
-      .join("")}
-  `;
+        <h3>Trending Communities</h3>
+        ${communities
+          .map(
+            (community) => `
+            <div class="community-item">
+                <img src="${community.image}" alt="${community.name}">
+                <div class="community-info">
+                    <h4>${community.name}</h4>
+                    <span>${community.members.toLocaleString()} members</span>
+                </div>
+            </div>
+        `
+          )
+          .join("")}
+    `;
 }
 
 // Initialize the feed
