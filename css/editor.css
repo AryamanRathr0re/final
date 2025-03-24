@@ -1,0 +1,65 @@
+/* Quill Editor Styles */
+#editor {
+  height: 200px;
+  margin-bottom: 1rem;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.ql-container {
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  background: var(--background-light);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+  font-family: inherit;
+}
+
+.ql-toolbar {
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  background: var(--background-light);
+  border-color: var(--border-color);
+}
+
+.ql-editor {
+  min-height: 150px;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.ql-editor:focus {
+  outline: none;
+}
+
+/* Toolbar button styles */
+.ql-toolbar button {
+  color: var(--text-primary);
+}
+
+.ql-toolbar button:hover {
+  color: var(--primary-color);
+}
+
+.ql-toolbar .ql-stroke {
+  stroke: var(--text-primary);
+}
+
+.ql-toolbar .ql-fill {
+  fill: var(--text-primary);
+}
+
+.ql-toolbar button:hover .ql-stroke {
+  stroke: var(--primary-color);
+}
+
+.ql-toolbar button:hover .ql-fill {
+  fill: var(--primary-color);
+}
+
+.ql-toolbar .ql-picker {
+  color: var(--text-primary);
+}
+
+.ql-toolbar .ql-picker-options {
+  background: var(--background-light);
+  border-color: var(--border-color);
+}
