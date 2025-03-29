@@ -65,34 +65,23 @@ let posts = [
   {
     id: 1,
     content:
-      "Just discovered this amazing new game! The graphics are stunning and the gameplay is incredibly smooth. Anyone else playing it?",
+      "Just launched my first open-source project! Would love feedback from the community.",
     author: {
-      name: "John Doe",
-      avatar: "https://picsum.photos/48/48?random=1",
+      name: "Alex Johnson",
+      avatar: "https://avatar.iran.liara.run/public/24",
     },
-    community: "Gaming Enthusiasts",
-    timestamp: new Date(Date.now() - 3600000), // 1 hour ago
-    likes: 42,
+    community: "Open Source Hub",
+    timestamp: new Date(Date.now() - 5400000), // 1.5 hours ago
+    likes: 120,
     comments: [
       {
-        id: 1,
-        content:
-          "I've been playing it for a week now! The multiplayer is amazing!",
+        id: 4,
+        content: "Congrats! Where can we check it out?",
         author: {
-          name: "Jane Smith",
-          avatar: "https://picsum.photos/48/48?random=2",
+          name: "Emily White",
+          avatar: "https://picsum.photos/48/48?random=4",
         },
-        timestamp: new Date(Date.now() - 1800000), // 30 minutes ago
-      },
-      {
-        id: 2,
-        content:
-          "The graphics are indeed stunning! What platform are you playing on?",
-        author: {
-          name: "Mike Johnson",
-          avatar: "https://picsum.photos/48/48?random=3",
-        },
-        timestamp: new Date(Date.now() - 900000), // 15 minutes ago
+        timestamp: new Date(Date.now() - 2700000), // 45 minutes ago
       },
     ],
   },
@@ -102,7 +91,7 @@ let posts = [
       "Check out this new AI technology I've been working on. It's revolutionizing how we approach machine learning!",
     author: {
       name: "Jane Smith",
-      avatar: "https://picsum.photos/48/48?random=2",
+      avatar: "https://avatar.iran.liara.run/public/22",
     },
     community: "Tech Innovators",
     timestamp: new Date(Date.now() - 7200000), // 2 hours ago
@@ -117,6 +106,190 @@ let posts = [
           avatar: "https://picsum.photos/48/48?random=1",
         },
         timestamp: new Date(Date.now() - 3600000), // 1 hour ago
+      },
+    ],
+  },
+  {
+    id: 3,
+    content:
+      "Just finished reading an amazing book on UX design. Highly recommend it!",
+    author: {
+      name: "Sophie Brown",
+      avatar: "https://picsum.photos/48/48?random=5",
+    },
+    community: "UI/UX Enthusiasts",
+    timestamp: new Date(Date.now() - 10800000), // 3 hours ago
+    likes: 73,
+    comments: [
+      {
+        id: 5,
+        content: "What’s the name of the book? Would love to check it out!",
+        author: {
+          name: "Michael Green",
+          avatar: "https://picsum.photos/48/48?random=6",
+        },
+        timestamp: new Date(Date.now() - 5400000), // 1.5 hours ago
+      },
+    ],
+  },
+  {
+    id: 4,
+    content:
+      "Built a new cryptocurrency trading bot. Testing it out now, results are promising!",
+    author: {
+      name: "Daniel Carter",
+      avatar: "https://picsum.photos/48/48?random=7",
+    },
+    community: "Crypto Traders",
+    timestamp: new Date(Date.now() - 14400000), // 4 hours ago
+    likes: 150,
+    comments: [
+      {
+        id: 6,
+        content: "Interesting! What strategy are you using?",
+        author: {
+          name: "Lisa Ray",
+          avatar: "https://picsum.photos/48/48?random=8",
+        },
+        timestamp: new Date(Date.now() - 7200000), // 2 hours ago
+      },
+    ],
+  },
+  {
+    id: 5,
+    content:
+      "Hosting a live Q&A on front-end performance optimization this weekend. Who’s in?",
+    author: {
+      name: "Kevin Adams",
+      avatar: "https://picsum.photos/48/48?random=9",
+    },
+    community: "Web Developers",
+    timestamp: new Date(Date.now() - 18000000), // 5 hours ago
+    likes: 95,
+    comments: [
+      {
+        id: 7,
+        content: "Count me in! What time will it be?",
+        author: {
+          name: "Sarah Kim",
+          avatar: "https://picsum.photos/48/48?random=10",
+        },
+        timestamp: new Date(Date.now() - 9000000), // 2.5 hours ago
+      },
+    ],
+  },
+  {
+    id: 6,
+    content:
+      "Experimenting with new neural network architectures. Excited about the potential breakthroughs!",
+    author: {
+      name: "Olivia Turner",
+      avatar: "https://picsum.photos/48/48?random=11",
+    },
+    community: "AI Enthusiasts",
+    timestamp: new Date(Date.now() - 21600000), // 6 hours ago
+    likes: 135,
+    comments: [
+      {
+        id: 8,
+        content: "What dataset are you using for training?",
+        author: {
+          name: "Jason Lee",
+          avatar: "https://picsum.photos/48/48?random=12",
+        },
+        timestamp: new Date(Date.now() - 10800000), // 3 hours ago
+      },
+    ],
+  },
+  {
+    id: 7,
+    content:
+      "Rewriting my portfolio site in Next.js for better performance. Excited for the results!",
+    author: {
+      name: "Nathan Scott",
+      avatar: "https://picsum.photos/48/48?random=13",
+    },
+    community: "Frontend Masters",
+    timestamp: new Date(Date.now() - 25200000), // 7 hours ago
+    likes: 112,
+    comments: [
+      {
+        id: 9,
+        content: "Nice! Are you using SSR or static generation?",
+        author: {
+          name: "Emma Davis",
+          avatar: "https://picsum.photos/48/48?random=14",
+        },
+        timestamp: new Date(Date.now() - 12600000), // 3.5 hours ago
+      },
+    ],
+  },
+  {
+    id: 8,
+    content:
+      "New blog post out: 'The Future of Decentralized Social Networks'. Let me know your thoughts!",
+    author: {
+      name: "Sophia Martinez",
+      avatar: "https://picsum.photos/48/48?random=15",
+    },
+    community: "Tech Writers",
+    timestamp: new Date(Date.now() - 28800000), // 8 hours ago
+    likes: 87,
+    comments: [
+      {
+        id: 10,
+        content: "Sounds interesting! Where can I read it?",
+        author: {
+          name: "Chris Brown",
+          avatar: "https://picsum.photos/48/48?random=16",
+        },
+        timestamp: new Date(Date.now() - 14400000), // 4 hours ago
+      },
+    ],
+  },
+  {
+    id: 9,
+    content:
+      "Loving the new Tailwind CSS features! It’s making styling so much easier.",
+    author: {
+      name: "Lucas Evans",
+      avatar: "https://picsum.photos/48/48?random=17",
+    },
+    community: "CSS Wizards",
+    timestamp: new Date(Date.now() - 32400000), // 9 hours ago
+    likes: 98,
+    comments: [
+      {
+        id: 11,
+        content: "I agree! Have you tried the new typography plugin?",
+        author: {
+          name: "Rachel Stewart",
+          avatar: "https://picsum.photos/48/48?random=18",
+        },
+        timestamp: new Date(Date.now() - 16200000), // 4.5 hours ago
+      },
+    ],
+  },
+  {
+    id: 10,
+    content:
+      "Just built a dark mode toggle with vanilla JavaScript! Feels so satisfying.",
+    author: {
+      name: "Ethan Robinson",
+      avatar: "https://picsum.photos/48/48?random=19",
+    },
+    community: "JavaScript Enthusiasts",
+    timestamp: new Date(Date.now() - 36000000), // 10 hours ago
+    likes: 105,
+    comments: [
+      {
+        id: 12,
+        content: "Nice! Are you using prefers-color-scheme?",
+        author: {
+          name: "Hannah Cooper",
+          avatar: "https://picsum.photos/48/48?random=20",
+        },
+        timestamp: new Date(Date.now() - 18000000), // 5 hours ago
       },
     ],
   },

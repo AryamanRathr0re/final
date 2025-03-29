@@ -80,6 +80,8 @@ nichehub/
 - Like and comment on posts
 - Share posts with others
 - Filter posts by category and time
+- More functionallity needs to be edited 
+- pages like profile and notification are not working now.
 
 ### Search and Filter
 
@@ -103,16 +105,16 @@ nichehub/
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
-
+This porject is Build By Aryaman Rathore in the Build Week Project Submission. Using HTML, CSS, And Javascript 
 ## Acknowledgments
 
 - Quill.js for the rich text editor
 - Font Awesome for the icons
 - Google Fonts for the Poppins font family
 
-## Contact
+ Contact
 
-Your Name - [@yourtwitter](https://twitter.com/yourtwitter) - email@example.com
+Your Name -Aryaman Rathore 
+Email: aryanrathore301@gmail.com
 
 Project Link: [https://github.com/yourusername/nichehub](https://github.com/yourusername/nichehub)
